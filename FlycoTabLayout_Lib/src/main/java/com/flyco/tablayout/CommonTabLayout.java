@@ -321,7 +321,7 @@ public class CommonTabLayout extends FrameLayout implements ValueAnimator.Animat
             TextView tab_title = (TextView) tabView.findViewById(R.id.tv_tab_title);
             tab_title.setTextColor(isSelect ? mTextSelectColor : mTextUnselectColor);
             if (mSelectTextsize>0) {
-                tab_title.setTextSize(TypedValue.COMPLEX_UNIT_PX,i == mCurrentTab ? mSelectTextsize : mTextsize);
+                tab_title.setTextSize(TypedValue.COMPLEX_UNIT_PX,isSelect ? mSelectTextsize : mTextsize);
             }else {
                 tab_title.setTextSize(TypedValue.COMPLEX_UNIT_PX, mTextsize);
             }
@@ -609,8 +609,8 @@ public class CommonTabLayout extends FrameLayout implements ValueAnimator.Animat
         this.mTextsize = sp2px(textsize);
         updateTabStyles();
     }
-    public void setmSelectTextsize(float textsize) {
-        this.mSelectTextsize = sp2px(textsize);
+    public void setmSelectTextsize(float selecttextsize) {
+        this.mSelectTextsize = sp2px(selecttextsize);
         updateTabStyles();
     }
     public void setTextSelectColor(int textSelectColor) {
