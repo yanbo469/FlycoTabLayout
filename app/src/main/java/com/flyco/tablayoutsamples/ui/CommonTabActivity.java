@@ -86,8 +86,11 @@ public class CommonTabActivity extends AppCompatActivity {
         mTabLayout_3.setTabData(mTabEntities, this, R.id.fl_change, mFragments2);
         mTabLayout_4.setTabData(mTabEntities);
         mTabLayout_5.setTabData(mTabEntities);
+        mTabLayout_5.setmSelectTextsize(15);
         mTabLayout_6.setTabData(mTabEntities);
+        mTabLayout_6.setmSelectTextsize(15);
         mTabLayout_7.setTabData(mTabEntities);
+        mTabLayout_7.setmSelectTextsize(15);
         mTabLayout_8.setTabData(mTabEntities);
 
         mTabLayout_3.setOnTabSelectListener(new OnTabSelectListener() {
