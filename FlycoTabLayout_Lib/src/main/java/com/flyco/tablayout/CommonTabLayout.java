@@ -21,7 +21,7 @@ import android.view.Gravity;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.animation.OvershootInterpolator;
-import android.widget.FrameLayout;
+import android.widget.HorizontalScrollView;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
@@ -35,7 +35,7 @@ import com.flyco.tablayout.widget.MsgView;
 import java.util.ArrayList;
 
 /** 没有继承HorizontalScrollView不能滑动,对于ViewPager无依赖 */
-public class CommonTabLayout extends FrameLayout implements ValueAnimator.AnimatorUpdateListener {
+public class CommonTabLayout extends HorizontalScrollView implements ValueAnimator.AnimatorUpdateListener {
     private Context mContext;
     private ArrayList<CustomTabEntity> mTabEntitys = new ArrayList<>();
     private LinearLayout mTabsContainer;
@@ -89,7 +89,7 @@ public class CommonTabLayout extends FrameLayout implements ValueAnimator.Animat
     private static final int TEXT_BOLD_BOTH = 2;
     private float mTextsize;
 
-    private float mSelectTextsize;
+    private float mTextsizeSelect;
     private int mTextSelectColor;
     private int mTextUnselectColor;
     private int mTextBold;
@@ -120,6 +120,7 @@ public class CommonTabLayout extends FrameLayout implements ValueAnimator.Animat
 
     public CommonTabLayout(Context context, AttributeSet attrs, int defStyleAttr) {
         super(context, attrs, defStyleAttr);
+        setFillViewport(true);
         setWillNotDraw(false);//重写onDraw方法,需要调用这个方法来清除flag
         setClipChildren(false);
         setClipToPadding(false);
@@ -273,8 +274,8 @@ public class CommonTabLayout extends FrameLayout implements ValueAnimator.Animat
             TextView tv_tab_title = (TextView) tabView.findViewById(R.id.tv_tab_title);
             tv_tab_title.setTextColor(i == mCurrentTab ? mTextSelectColor : mTextUnselectColor);
 //            tv_tab_title.setTextSize(TypedValue.COMPLEX_UNIT_PX, mTextsize);
-            if (mSelectTextsize>0) {
-                tv_tab_title.setTextSize(TypedValue.COMPLEX_UNIT_PX,i == mCurrentTab ? mSelectTextsize : mTextsize);
+            if (mTextsizeSelect>0) {
+                tv_tab_title.setTextSize(TypedValue.COMPLEX_UNIT_PX,i == mCurrentTab ? mTextsizeSelect : mTextsize);
             }else {
                 tv_tab_title.setTextSize(TypedValue.COMPLEX_UNIT_PX, mTextsize);
             }
@@ -320,8 +321,8 @@ public class CommonTabLayout extends FrameLayout implements ValueAnimator.Animat
             final boolean isSelect = i == position;
             TextView tab_title = (TextView) tabView.findViewById(R.id.tv_tab_title);
             tab_title.setTextColor(isSelect ? mTextSelectColor : mTextUnselectColor);
-            if (mSelectTextsize>0) {
-                tab_title.setTextSize(TypedValue.COMPLEX_UNIT_PX,isSelect ? mSelectTextsize : mTextsize);
+            if (mTextsizeSelect>0) {
+                tab_title.setTextSize(TypedValue.COMPLEX_UNIT_PX,isSelect ? mTextsizeSelect : mTextsize);
             }else {
                 tab_title.setTextSize(TypedValue.COMPLEX_UNIT_PX, mTextsize);
             }
@@ -609,8 +610,8 @@ public class CommonTabLayout extends FrameLayout implements ValueAnimator.Animat
         this.mTextsize = sp2px(textsize);
         updateTabStyles();
     }
-    public void setmSelectTextsize(float selecttextsize) {
-        this.mSelectTextsize = sp2px(selecttextsize);
+    public void setTextsizeSelect(float selecttextsize) {
+        this.mTextsizeSelect = sp2px(selecttextsize);
         updateTabStyles();
     }
     public void setTextSelectColor(int textSelectColor) {

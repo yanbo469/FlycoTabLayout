@@ -27,13 +27,13 @@ public class CommonTabActivity extends AppCompatActivity {
     private ArrayList<Fragment> mFragments = new ArrayList<>();
     private ArrayList<Fragment> mFragments2 = new ArrayList<>();
 
-    private String[] mTitles = {"首页", "消息", "联系人", "更多"};
+    private String[] mTitles = {"首页", "消息", "联系人", "更多", "更多", "更多", "更多"};
     private int[] mIconUnselectIds = {
             R.mipmap.tab_home_unselect, R.mipmap.tab_speech_unselect,
-            R.mipmap.tab_contact_unselect, R.mipmap.tab_more_unselect};
+            R.mipmap.tab_contact_unselect, R.mipmap.tab_more_unselect, R.mipmap.tab_more_unselect, R.mipmap.tab_more_unselect, R.mipmap.tab_more_unselect};
     private int[] mIconSelectIds = {
             R.mipmap.tab_home_select, R.mipmap.tab_speech_select,
-            R.mipmap.tab_contact_select, R.mipmap.tab_more_select};
+            R.mipmap.tab_contact_select, R.mipmap.tab_more_select, R.mipmap.tab_more_select, R.mipmap.tab_more_select, R.mipmap.tab_more_select};
     private ArrayList<CustomTabEntity> mTabEntities = new ArrayList<>();
     private View mDecorView;
     private ViewPager mViewPager;
@@ -86,11 +86,11 @@ public class CommonTabActivity extends AppCompatActivity {
         mTabLayout_3.setTabData(mTabEntities, this, R.id.fl_change, mFragments2);
         mTabLayout_4.setTabData(mTabEntities);
         mTabLayout_5.setTabData(mTabEntities);
-        mTabLayout_5.setmSelectTextsize(15);
+        mTabLayout_5.setmTextsizeSelect(15);
         mTabLayout_6.setTabData(mTabEntities);
-        mTabLayout_6.setmSelectTextsize(15);
+        mTabLayout_6.setmTextsizeSelect(15);
         mTabLayout_7.setTabData(mTabEntities);
-        mTabLayout_7.setmSelectTextsize(15);
+        mTabLayout_7.setmTextsizeSelect(15);
         mTabLayout_8.setTabData(mTabEntities);
 
         mTabLayout_3.setOnTabSelectListener(new OnTabSelectListener() {

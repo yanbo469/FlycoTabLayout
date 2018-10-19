@@ -88,7 +88,7 @@ public class SlidingTabLayout extends HorizontalScrollView implements ViewPager.
     private static final int TEXT_BOLD_WHEN_SELECT = 1;
     private static final int TEXT_BOLD_BOTH = 2;
     private float mTextsize;
-    private float mSelectTextsize;
+    private float mTextsizeSelect;
     private int mTextSelectColor;
     private int mTextUnselectColor;
     private int mTextBold;
@@ -299,8 +299,8 @@ public class SlidingTabLayout extends HorizontalScrollView implements ViewPager.
             TextView tv_tab_title = (TextView) v.findViewById(R.id.tv_tab_title);
             if (tv_tab_title != null) {
                 tv_tab_title.setTextColor(i == mCurrentTab ? mTextSelectColor : mTextUnselectColor);
-                if (mSelectTextsize>0) {
-                    tv_tab_title.setTextSize(TypedValue.COMPLEX_UNIT_PX,i == mCurrentTab ? mSelectTextsize : mTextsize);
+                if (mTextsizeSelect>0) {
+                    tv_tab_title.setTextSize(TypedValue.COMPLEX_UNIT_PX,i == mCurrentTab ? mTextsizeSelect : mTextsize);
                 }else {
                     tv_tab_title.setTextSize(TypedValue.COMPLEX_UNIT_PX, mTextsize);
                 }
@@ -375,8 +375,8 @@ public class SlidingTabLayout extends HorizontalScrollView implements ViewPager.
 
             if (tab_title != null) {
                 tab_title.setTextColor(isSelect ? mTextSelectColor : mTextUnselectColor);
-                if (mSelectTextsize>0) {
-                    tab_title.setTextSize(TypedValue.COMPLEX_UNIT_PX,isSelect ? mSelectTextsize : mTextsize);
+                if (mTextsizeSelect>0) {
+                    tab_title.setTextSize(TypedValue.COMPLEX_UNIT_PX,isSelect ? mTextsizeSelect : mTextsize);
                 }else {
                     tab_title.setTextSize(TypedValue.COMPLEX_UNIT_PX, mTextsize);
                 }
@@ -639,7 +639,10 @@ public class SlidingTabLayout extends HorizontalScrollView implements ViewPager.
         this.mTextsize = sp2px(textsize);
         updateTabStyles();
     }
-
+    public void setTextsizeSelect(float selecttextsize) {
+        this.mTextsizeSelect = sp2px(selecttextsize);
+        updateTabStyles();
+    }
     public void setTextSelectColor(int textSelectColor) {
         this.mTextSelectColor = textSelectColor;
         updateTabStyles();

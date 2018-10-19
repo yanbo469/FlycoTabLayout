@@ -70,7 +70,7 @@ public class SegmentTabLayout extends FrameLayout implements ValueAnimator.Anima
     private static final int TEXT_BOLD_WHEN_SELECT = 1;
     private static final int TEXT_BOLD_BOTH = 2;
     private float mTextsize;
-    private float mSelectTextsize;
+    private float mTextsizeSelect;
     private int mTextSelectColor;
     private int mTextUnselectColor;
     private int mTextBold;
@@ -230,8 +230,8 @@ public class SegmentTabLayout extends FrameLayout implements ValueAnimator.Anima
             TextView tv_tab_title = (TextView) tabView.findViewById(R.id.tv_tab_title);
             tv_tab_title.setTextColor(i == mCurrentTab ? mTextSelectColor : mTextUnselectColor);
 //            tv_tab_title.setTextSize(TypedValue.COMPLEX_UNIT_PX, mTextsize);
-            if (mSelectTextsize>0) {
-                tv_tab_title.setTextSize(TypedValue.COMPLEX_UNIT_PX,i == mCurrentTab ? mSelectTextsize : mTextsize);
+            if (mTextsizeSelect>0) {
+                tv_tab_title.setTextSize(TypedValue.COMPLEX_UNIT_PX,i == mCurrentTab ? mTextsizeSelect : mTextsize);
             }else {
                 tv_tab_title.setTextSize(TypedValue.COMPLEX_UNIT_PX, mTextsize);
             }
@@ -254,8 +254,8 @@ public class SegmentTabLayout extends FrameLayout implements ValueAnimator.Anima
             final boolean isSelect = i == position;
             TextView tab_title = (TextView) tabView.findViewById(R.id.tv_tab_title);
             tab_title.setTextColor(isSelect ? mTextSelectColor : mTextUnselectColor);
-            if (mSelectTextsize>0) {
-                tab_title.setTextSize(TypedValue.COMPLEX_UNIT_PX,isSelect ? mSelectTextsize : mTextsize);
+            if (mTextsizeSelect>0) {
+                tab_title.setTextSize(TypedValue.COMPLEX_UNIT_PX,isSelect ? mTextsizeSelect : mTextsize);
             }else {
                 tab_title.setTextSize(TypedValue.COMPLEX_UNIT_PX, mTextsize);
             }
@@ -496,8 +496,8 @@ public class SegmentTabLayout extends FrameLayout implements ValueAnimator.Anima
         this.mTextsize = sp2px(textsize);
         updateTabStyles();
     }
-    public void setmSelectTextsize(float selecttextsize) {
-        this.mSelectTextsize = sp2px(selecttextsize);
+    public void setTextsizeSelect(float selecttextsize) {
+        this.mTextsizeSelect = sp2px(selecttextsize);
         updateTabStyles();
     }
     public void setTextSelectColor(int textSelectColor) {

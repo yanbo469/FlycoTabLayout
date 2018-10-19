@@ -89,7 +89,9 @@
             tl:tl_indicator_corner_radius="2dp"
             tl:tl_indicator_height="4dp"
             tl:tl_indicator_width="4dp"
-            tl:tl_textsize="14sp"/>
+            tl:tl_tab_padding="15dp"
+            tl:tl_textsize="14sp"
+            tl:tl_tab_space_equal="false"/>
 
         <com.flyco.tablayout.CommonTabLayout
             android:id="@+id/tl_6"
